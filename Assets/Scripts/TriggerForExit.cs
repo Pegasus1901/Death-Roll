@@ -6,8 +6,7 @@ public class TriggerForExit : MonoBehaviour
 {
     public GameObject door;
     public GameObject BackDoor;
-    TriggerInfo triggerInfo;
-    public int a;
+    [SerializeField] TriggerInfo triggerInfo;
     void Start()
     {
         RandomNumber();
@@ -16,9 +15,7 @@ public class TriggerForExit : MonoBehaviour
     public void RandomNumber()
     {
         int r = Random.Range(1, 7);
-        a = r;
         PathOpeningScript(r);
-        triggerInfo.StoreRes(a);
     }
     
     public void PathOpeningScript(int rand)
@@ -60,6 +57,10 @@ public class TriggerForExit : MonoBehaviour
         meshValue.enabled = false;
         backCollider.enabled = false;
         backMesh.enabled = false;
+
+        triggerInfo.RandomNos(door, BackDoor);
+
     }
+    
 
 }
